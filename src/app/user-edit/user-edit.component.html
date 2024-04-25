@@ -1,0 +1,59 @@
+<!-- <h1 class="text-3xl font-bold underline">
+  Hello world!
+</h1> -->
+<!-- <h3 *ngFor="let user of users">
+  <li>name: {{user.name}} age: {{user.age}}</li>
+  <button type="button" (click)="consoleUserId(user._id)">Edit</button>
+  <button type="button" (click)="deleteUser(user._id)">Delete</button>
+</h3> -->
+
+<!-- component -->
+<div class="text-gray-900 bg-gray-200">
+    <div class="p-4 flex">
+        <div class="p-4 flex">
+            <h1 class="text-3xl font-bold">Users Edit</h1>
+        </div>
+        <div class="flex justify-start p-3 px-5">
+            <button type="submit" class="px-6 py-2 bg-rose-500 text-white font-semibold rounded-md hover:bg-indigo-600 focus:outline-none"
+            (click)="goBack()">Back</button>
+        </div>
+    </div>
+    <div class="px-3 py-4 flex justify-center">
+        <form class="w-full text-md bg-white shadow-md rounded mb-4" [formGroup]="userForm" (ngSubmit)="editUser()">
+            <div class="mb-6 p-3 px-5">
+                <label class="block text-lg font-medium text-gray-800 mb-1">Name</label>
+                <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" 
+                placeholder="Name" type="text" formControlName="name" required>
+            </div>
+            <div class="px-4 flex label" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+                <span class="label-text-alt text-error">
+                  {{ name?.errors?.['required'] ? 'Name is required' : '' }}
+                  {{ name?.errors?.['minlength'] ? 'Name must be at least 3 characters' : '' }}
+                  {{ name?.errors?.['maxlength'] ? 'Name must be at most 40 characters' : '' }}
+                </span>
+              </div>
+            
+            <div class="mb-6 p-3 px-5">
+                <label class="block text-lg font-medium text-gray-800 mb-1">Age</label>
+                <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                placeholder="Age" type="number" formControlName="age" required>
+            </div>
+            <div class="px-4 flex label" *ngIf="age?.invalid && (age?.dirty || age?.touched)">
+                <span class="label-text-alt text-error">
+                  {{ age?.errors?.['required'] ? 'Age is required' : '' }}
+                  {{ age?.errors?.['minlength'] ? 'Age must be at least 1 characters' : '' }}
+                  {{ age?.errors?.['maxlength'] ? 'Age must be at most 3 characters' : '' }}
+                </span>
+              </div>
+            <!-- <div class="mb-6 p-3 px-5">
+                <label for="content" class="block text-lg font-medium text-gray-800 mb-1">Content</label>
+                <textarea id="content" name="content" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" rows="6" required></textarea>
+            </div> -->
+    
+            <div class="flex justify-end p-3 px-5">
+                <button type="submit" class="px-6 py-2 bg-emerald-500 text-white font-semibold rounded-md hover:bg-indigo-600 focus:outline-none">Submit</button>
+            </div>
+        </form>
+  
+    </div>
+  </div>

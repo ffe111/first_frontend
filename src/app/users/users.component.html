@@ -1,0 +1,50 @@
+<!-- <h1 class="text-3xl font-bold underline">
+  Hello world!
+</h1> -->
+<!-- <h3 *ngFor="let user of users">
+  <li>name: {{user.name}} age: {{user.age}}</li>
+  <button type="button" (click)="consoleUserId(user._id)">Edit</button>
+  <button type="button" (click)="deleteUser(user._id)">Delete</button>
+</h3> -->
+
+<!-- component -->
+<div class="text-gray-900 bg-gray-200">
+    <div class="p-4 flex">
+        <h1 class="text-3xl font-bold">Users</h1>
+    </div>
+    <div class="px-3 py-4 flex justify-center">
+        <table class="w-full text-md bg-white shadow-md rounded mb-4">
+            <tbody>
+                <tr class="border-b">
+                    <th class="text-left p-3 px-5">Name</th>
+                    <th class="text-left p-3 px-5">Age</th>
+                    <th class="p-3 px-5 flex justify-end">
+                      <button type="button"
+                            class="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                            [routerLink]="['/add']">ADD</button>
+                    </th>
+                </tr>
+                <tr class="border-b hover:bg-orange-100 bg-gray-100" *ngFor="let user of users">
+                    <td class="p-3 px-5">
+                        <h3>{{user.name}}</h3>
+                    </td>
+                    <td class="p-3 px-5">
+                        <h3>{{user.age}}</h3>
+                    </td>
+                    <td class="p-3 px-5 flex justify-end">
+                        <button type="button"
+                            class="mr-3 text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                            (click)="consoleUserId(user._id)">Show</button>
+                        <button type="button"
+                            class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                            [routerLink]="['edit/'+user._id]">Edit</button>
+                        <button type="button"
+                            class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                            (click)="deleteUser(user._id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+  
+    </div>
+  </div>
